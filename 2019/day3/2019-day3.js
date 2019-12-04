@@ -12,37 +12,6 @@ function intersect(a, b) {
   return array1.filter(value => -1 !== array2.indexOf(value)).map(p => p.split(',')).map(d => d.map(e => parseInt(e)));
 }
 
-function getFrequency(arr) {
-  var freq = {};
-  for (var i=0; i<arr.length;i++) {
-      var element = arr[i];
-      if (freq[element]) {
-         freq[element]++;
-      } else {
-         freq[element] = 1;
-      }
-  }
-
-  const results = [];
-  Object.keys(freq).forEach((key) => {
-    if (freq[key] > 1) {
-      results.push(key);
-    }
-  });
-  return results;
-};
-
-function findDupes(arr) {
-  arr.sort();
-  const results = [];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] === arr[i - 1]) {
-      results.push(arr[i]);
-    }
-  }
-  return results.map(i => i.split(',').map(j => parseInt(j)));
-}
-
 function findSteps(wire1, wire2, point) {
   const array1 = wire1.map(n => n.join(','));
   const array2 = wire2.map(n => n.join(','));
